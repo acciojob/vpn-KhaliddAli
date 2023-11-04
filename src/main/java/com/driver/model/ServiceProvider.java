@@ -20,13 +20,13 @@ public class ServiceProvider {
     private Admin admin;
 
     @OneToMany(mappedBy = "serviceProvider" , cascade = CascadeType.ALL)
-    private List<Country> countries = new ArrayList<>();
+    private List<Country> countryList = new ArrayList<>();
 
     @OneToMany
     private List<Connection> connectionList = new ArrayList<>();
 
     @ManyToMany(mappedBy = "serviceProviderList" , cascade = CascadeType.ALL)
-    private List<User> userList = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -52,12 +52,12 @@ public class ServiceProvider {
         this.admin = admin;
     }
 
-    public List<Country> getCountries() {
-        return countries;
+    public List<Country> getCountryList() {
+        return countryList;
     }
 
-    public void setCountries(List<Country> countries) {
-        this.countries = countries;
+    public void setCountryList(List<Country> countryList) {
+        this.countryList = countryList;
     }
 
     public List<Connection> getConnectionList() {
@@ -68,16 +68,16 @@ public class ServiceProvider {
         this.connectionList = connectionList;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public boolean findCountry(String countryName){
-        for(Country country : countries){
+        for(Country country : countryList){
             if(country.getCountryName().name().equals(countryName)) return true;
         }
         return false;
